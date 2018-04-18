@@ -4,7 +4,7 @@ import { RealtimeService } from "./realtime.service";
 import { MyoService } from "./myo.service";
 import { map, tap } from "rxjs/operators";
 
-import { IPose } from "./myo.service";
+import { IControllerEvent } from "./myo.service";
 
 @Component({
   selector: "app-root",

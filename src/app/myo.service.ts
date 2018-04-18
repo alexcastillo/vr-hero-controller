@@ -3,7 +3,7 @@ import { fromEvent } from "rxjs/observable/fromEvent";
 import { tap } from "rxjs/operators";
 import * as Myo from "myo";
 
-export interface IPose {
+export interface IControllerEvent {
   pose: string;
 }
 

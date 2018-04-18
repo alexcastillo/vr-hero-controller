@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import * as firebase from "firebase";
 
-import { IPose } from "./myo.service";
+import { IControllerEvent } from "./myo.service";
 
 const EVENT_TIMEOUT = 4000;
 
@@ -22,7 +22,7 @@ export class RealtimeService {
     this.gestureRef = firebase.database().ref("/gesture");
   }
 
-  addEvent(e: IPose) {
+  addEvent(e: IControllerEvent) {
     const ref = this.gestureRef.push(e);
     ref.onDisconnect().remove();
     setTimeout(() => ref.remove(), EVENT_TIMEOUT);
