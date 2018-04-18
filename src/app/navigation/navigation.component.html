@@ -1,37 +1,15 @@
 <nav>
   <div class="nav-wrapper">
-    <a routerLink="/fretboard" class="brand-logo">
-      Jamstik+
+    <a routerLink="/myo" class="brand-logo">
+      VR Hero
     </a>
     <ul class="secondary-nav hide-on-med-and-down">
       <li>
-        <jamstik-instruments
-          (onChange)="jamstikService.changeInstrument($event)">
-        </jamstik-instruments>
       </li>
       <li>
-        <a *ngIf="jamstikService.connected$|async">
-          Connected to <strong>{{jamstikService.deviceName}}</strong>
+        <a>
+          Connected to <strong>Myo</strong>
         </a>
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="/fretboard">Fretboard</a></li>
-      <li><a routerLink="/game">Game</a></li>
-      <li><a routerLink="/recording">Recording</a></li>
-      <li *ngIf="!(jamstikService.connected$|async)">
-        <button class="btn waves-effect waves-light red"
-          (click)="jamstikService.scan()">
-          Connect
-          <i class="material-icons right">bluetooth</i>
-        </button>
-      </li>
-      <li *ngIf="jamstikService.connected$|async">
-        <button class="btn waves-effect waves-light red"
-          (click)="jamstikService.disconnect()">
-          Disconnect
-          <i class="material-icons right">bluetooth_disabled</i>
-        </button>
       </li>
     </ul>
   </div>

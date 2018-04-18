@@ -1,12 +1,20 @@
-
-.note-status {
-    width: 10px;
-    height: 10px;
-    display: inline-flex;
-    border-radius: 50%;
-    background-color: lightgray;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
 }
 
-.note-match {
-    background-color: limegreen;
+.pose-container {
+  text-align: center;
+}
+
+.pose-icon {
+  margin-bottom: 40px;
+}
+
+.pose-name {
+  font-size: 30px;
+  font-weight: 200;
+  letter-spacing: 4px;
 }

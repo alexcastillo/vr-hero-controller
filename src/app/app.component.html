@@ -1,4 +1,14 @@
-<section>
+<section class="container">
   <app-navigation></app-navigation>
+  <div class="pose-container">
+    <img
+      class="pose-icon"
+      width="186"
+      height="186"
+      [src]="myoService.getPoseImage(pose$ | async)"
+      *ngIf="pose$ | async"
+    />
+    <div class="pose-name">{{ poseTitle$ | async }}</div>
+  </div>
   <router-outlet></router-outlet>
 </section>
