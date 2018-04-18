@@ -4,7 +4,7 @@ import { tap } from "rxjs/operators";
 import * as Myo from "myo";
 
 export interface IPose {
-  pose: number;
+  pose: string;
 }
 
 @Injectable()
