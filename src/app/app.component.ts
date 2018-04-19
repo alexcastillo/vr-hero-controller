@@ -18,7 +18,19 @@ export class AppComponent {
   ) {}
 
   pose$ = this.myoService.on("pose").pipe(
-    throttleTime(200),
+    throttleTime(200)
+  );
+
+  poseIcon$ = this.pose$.pipe(
+    map((pose: any) => {
+      if (this.myoService.poses.includes(pose)) {
+        return `./assets/poses/${pose}.svg`;
+      }
+      return `./assets/poses/none.svg`;
+    })
+  );
+
+  actions$ = this.pose$.pipe(
     flatMap(pose => {
       switch (pose) {
         case "wave_in":
@@ -37,5 +49,5 @@ export class AppComponent {
     }),
     tap(event => this.realtime.addEvent(event)),
     tap(event => console.log(event)),
-  );
+  ).subscribe();
 }

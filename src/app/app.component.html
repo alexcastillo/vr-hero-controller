@@ -5,7 +5,8 @@
       class="pose-icon"
       width="186"
       height="186"
-      [src]="myoService.getPoseImage(pose$ | async)"
+      *ngIf="(poseIcon$ | async)" 
+      [src]="poseIcon$ | async"
     />
   </div>
   <router-outlet></router-outlet>

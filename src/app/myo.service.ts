@@ -30,11 +30,4 @@ export class MyoService {
   on(event) {
     return fromEvent(this.myo, event);
   }
-
-  getPoseImage (pose) {
-    if (!this.poses.includes(pose)) {
-      return `./assets/poses/none.svg`;
-    }
-    return `./assets/poses/${pose}.svg`;
-  }
 }
