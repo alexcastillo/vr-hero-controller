@@ -29,7 +29,7 @@ export class AppComponent {
           });
         case "fingers_spread":
           return of({
-            type: "pulse"
+            type: "blast"
           });
         default:
           return empty();
