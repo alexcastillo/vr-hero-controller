@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { fromEvent } from "rxjs/observable/fromEvent";
-import { tap } from "rxjs/operators";
 import * as Myo from "myo";
 
 export interface IControllerEvent {
-  pose: string;
+  name: string;
 }
 
 @Injectable()
@@ -24,14 +23,12 @@ export class MyoService {
       this.vibrate();
       this.streamEMG();
     });
-    this.myo.onError = error => console.log(error);
+    this.myo.onError = error => console.error(error);
     this.myo.connect("org.vrhero.myo");
   }
 
   on(event) {
-    return fromEvent(this.myo, event).pipe(
-      tap(console.log)
-    );
+    return fromEvent(this.myo, event);
   }
 
   getPoseImage (pose) {

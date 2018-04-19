@@ -15,15 +15,15 @@ const config = {
 
 @Injectable()
 export class RealtimeService {
-  private poseRef: firebase.database.Reference;
+  private actionRef: firebase.database.Reference;
 
   constructor() {
     firebase.initializeApp(config);
-    this.poseRef = firebase.database().ref("/pose");
+    this.actionRef = firebase.database().ref("/action");
   }
 
-  addEvent(e: IControllerEvent) {
-    const ref = this.poseRef.push(e);
+  addEvent(e) {
+    const ref = this.actionRef.push(e);
     ref.onDisconnect().remove();
     setTimeout(() => ref.remove(), EVENT_TIMEOUT);
   }
